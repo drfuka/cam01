@@ -1,0 +1,17 @@
+cordova create cam01 com.example.cam01 cam01
+git clone https://github.com/ThomasLech/cordova-camera-preview-example.git
+cd cam01/
+rm -rf www
+mv ../cordova-camera-preview-example/www/ .
+cd www
+# need the to add font-src 'self' data:; to Security Policy
+vi index.html 
+cd ..
+git init; git add *; git commit -m "first"
+history | grep git
+git remote add origin https://github.com/drfuka/cam01.git
+git push --set-upstream origin master
+cordova plugin add https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git
+cordova platform add ios
+cordova build ios
+cordova serve
